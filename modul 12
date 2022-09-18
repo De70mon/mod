@@ -1,0 +1,200 @@
+print(round(3.14**2/2)) # второй аргумент - желаемое количество знаков
+
+colors = 'red green blue'
+colors_split = colors.split() # список цветов по отдельности
+
+colors_joined = ' and '.join(colors_split) # объединение строк
+print(colors_joined)
+# red and green and blue
+
+numbers = input("Введите числа через пробел:")
+
+numbers_split = numbers.split()
+numbers_lines = "\n".join(numbers_split)
+
+print(numbers_lines)
+
+pi = 31.4159265
+print ("%.4e" % (pi))
+
+
+a = str(input())
+l = len(a)-1
+c = 1
+t = ''
+if len(a)==1:
+    t = t +a+str(c)
+else:
+    for i in range(0,l):
+        if a[i]==a[i+1]:
+            c +=1
+        elif a[i]!=a[i+1]:
+            t = t + a[i]+str(c)
+            c = 1
+    for j in range(l,l+1):
+        if a[-1]==a[-2]:
+            t = t +a[j]+str(c)
+        elif a[-1]!=a[-2]:
+            t = t +a[j]+str(c)
+            c = 1
+print(t)
+
+price_all = 0
+while True:
+    try:
+        ticket_number = input('Введите количество регистрирунмых участников конференции - ')
+        ticket_number = int(ticket_number)
+        if type(ticket_number) == int:
+            break
+    except ValueError:
+        print('Введите целое число')
+for i in range(ticket_number):
+    i += 1
+    while True:
+        try:
+            age_for_ticket = input(f'Введите возраст участника конференции №{i}- ')
+            age_for_ticket = int(age_for_ticket)
+            if age_for_ticket < 18:
+                print('Билет бесплатный')
+            elif 25 > age_for_ticket >= 18:
+                price_all += 990
+                print('Стоимость билета: 990 руб.')
+            else:
+                price_all += 1390
+                print('Стоимость билета: 1390 руб.')
+            if type(age_for_ticket) == int:
+                break
+        except ValueError:
+            print('Введите целое число')
+if ticket_number > 3:
+    price_all = price_all - ((price_all / 100) * 10)
+    print(f'Сумма к оплате {price_all} руб. с учетом 10%-ой скидки на полную стоимость заказа за регистрацию больше 3-х человек')
+else:
+    print(f'Сумма к оплате {price_all} руб.')
+
+
+z = [4, 1, 5, 4, 10, 4]
+print(z.index(4))
+print(z.count(4))
+z.sort()
+print(z)
+z.sort(reverse = True)
+print(z)
+z.append(3)
+print(z)
+z.remove(5)
+print(z)
+print(z.pop(1))
+print(z)
+z.extend([4, 5])
+print(z)
+print(z + [3,4])
+print(4 in z)
+print(5 not in z)
+print(5*z)
+print(min(z))
+print(max(z))
+print(sum(z))
+x=[i for i in range(20)]
+print(x)
+print(', '.join(z)) Рабоьае только со сторочными объектами
+print(str(z).strip('[]'))
+print(', '.join(map(str, z)))
+print('\n'.join(map(str, z)))
+
+
+
+
+
+
+L = ["а", "б", "в", 1, 2, 3, 4]
+print(L[1:4])
+print(L[::3])
+print(L[3::-1])
+print(L[:3:-1])
+# [4, 3, 2]
+
+L = [3.3, 4.4, 5.5, 6.6]
+print(map(round, L))
+print(list(map(round, L)))
+
+L = ['3.3', '4.4', '5.5', '6.6']
+print (list (map (float, L)))
+
+string = input("Введите числа через пробел:")
+
+list_of_strings = string.split() # список строковых представлений чисел
+list_of_numbers = list(map(int, list_of_strings)) # список чисел
+print(list_of_numbers[::3])
+print(sum(list_of_numbers[::3])) # sum() вычисляет сумму элементов списка
+
+string = input("Введите числа через пробел:")
+list_of_strings = string.split() # список строковых представлений чисел
+list_of_numbers = list(map(int, list_of_strings)) # список чисел
+list_of_numbers[0], list_of_numbers[-1] = list_of_numbers[-1], list_of_numbers[0]
+print(list_of_numbers)
+list_of_numbers.append(sum(list_of_numbers))
+print(list_of_numbers)
+
+ИЛИ
+и приведение объекта map к типу список, можно делать в одной строке
+L = list(map(float, input().split()))
+обмениваем первое и последнее число
+с помощью множественного присваивания
+L[0], L[-1] = L[-1], L[0]
+находим сумму и добавляем её в конец списка
+L.append(sum(L))
+print(L)
+
+y={"name": "Ilya"}
+y["age"]= 30
+y['phone']= '8(800)555-5555'
+print(y)
+print(y['name'])
+print(y.keys())
+print(y.values())
+y.pop('phone')
+print(y)
+
+d = {'day' : 22, 'month' : 6, 'year' : 2015}
+print("||".join(d.keys()))
+
+k=input('Введите название книги -')
+a=input('Введите фамилию автора -')
+g=input('Введите год выпуска -')
+task ={}
+task['book'] = k
+task['avtor']=a
+task['god']=g
+print(task)
+
+
+text = input('Введите текст')
+unique = list(set(text))
+print("Количество уникальных символов: ", len(unique))
+
+a = input("Введите первую строку: ")
+b = input("Введите вторую строку: ")
+a_set, b_set = set(a), set(b) # используем множественное присваивание
+a_and_b = a_set.union(b_set)
+print(a_and_b)
+
+
+
+L = ['a', 'b', 'c']
+print(id(L))
+L.append('d')
+print(id(L))
+
+a = 5
+print(id(a))
+b = 3+2
+print(id(b))
+
+shopping_center = ("Галерея", "Санкт-Петербург", "Лиговский пр., 30", ["H&M", "Zara"])
+list_id_before = id(shopping_center[-1])
+shopping_center[-1].append("Uniqlo")
+list_id_after = id(shopping_center[-1])
+print(list_id_before == list_id_after)
+
+
